@@ -14,7 +14,11 @@ class MainActivityPresenter(
         service.allLeagues.enqueue(object : retrofit2.Callback<LeagueResponse> {
             override fun onResponse(call: Call<LeagueResponse>, res: Response<LeagueResponse>) {
                 val response = res.body()
-                response?.let { view.showAllLeagues(it.leagues) }
+                response?.let {
+                    it.leagues?.let { leagues ->
+                        view.showAllLeagues(leagues)
+                    }
+                }
             }
 
             override fun onFailure(call: Call<LeagueResponse>, t: Throwable) {
@@ -28,7 +32,11 @@ class MainActivityPresenter(
         service.getTeamByLeague(leagueId).enqueue(object: retrofit2.Callback<TeamResponse> {
             override fun onResponse(call: Call<TeamResponse>, res: Response<TeamResponse>) {
                 val response = res.body()
-                response?.let { view.showAllTeams(it.teams) }
+                response?.let {
+                    it.teams?.let { teams ->
+                        view.showAllTeams(teams)
+                    }
+                }
             }
 
             override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
