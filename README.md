@@ -9,3 +9,5 @@ The purpose of this program:
 - Able to convert java file to kotlin file with shortcut ```CTRL+SHIFT+ALT+K```
 - Able to create kotlin extension function so it can be use globally
 - Able to simplify code using kotlin extensions
+- Able to applying scope function
+- Able to apllying high order function
