@@ -59,11 +59,12 @@ class MainActivity : AppCompatActivity(), MainActivityView {
     }
 
     override fun showAllLeagues(leagues: List<League>) {
-        toast("Total Leagues: ${leagues.size}")
+        val filtered = leagues.filter { it.strSport == "Soccer" }
+        toast("Total Leagues: ${filtered.size}")
         listLeague.clear()
-        listLeague.addAll(leagues)
-        for(i in 0 until listLeague.size){
-            listLeagueName.add(listLeague[i].strLeague)
+        listLeague.addAll(filtered)
+        for(element in filtered){
+            listLeagueName.add(element.strLeague)
         }
         spinnerAdapter.notifyDataSetChanged()
     }
