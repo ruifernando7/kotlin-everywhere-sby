@@ -15,6 +15,9 @@ import com.android.codelabs.data.remote.model.League
 import com.android.codelabs.data.remote.model.Team
 import com.android.codelabs.ui.detail.TeamDetailActivity
 import com.android.codelabs.ui.main.adapter.TeamRvAdapter
+import com.android.codelabs.utils.hide
+import com.android.codelabs.utils.show
+import com.android.codelabs.utils.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainActivityView {
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity(), MainActivityView {
     }
 
     override fun showAllLeagues(leagues: List<League>) {
+        toast("Total Leagues: ${leagues.size}")
         listLeague.clear()
         listLeague.addAll(leagues)
         for(i in 0 until listLeague.size){
@@ -71,13 +75,13 @@ class MainActivity : AppCompatActivity(), MainActivityView {
     }
 
     override fun showLoading() {
-        pb_mainactivity.visibility = View.VISIBLE
-        rv_mainactivity_team.visibility = View.GONE
+        pb_mainactivity.show()
+        rv_mainactivity_team.hide()
     }
 
     override fun hideLoading() {
-        pb_mainactivity.visibility = View.GONE
-        rv_mainactivity_team.visibility = View.VISIBLE
+        pb_mainactivity.hide()
+        rv_mainactivity_team.show()
     }
 
     override fun showToast(message: String) {
