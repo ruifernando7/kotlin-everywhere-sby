@@ -9,9 +9,13 @@ public class League {
     @SerializedName("strLeague")
     private String strLeague;
 
-    public League(String idLeague, String strLeague) {
+    @SerializedName("strSport")
+    private String strSport;
+
+    public League(String idLeague, String strLeague, String strSport) {
         this.idLeague = idLeague;
         this.strLeague = strLeague;
+        this.strSport = strSport;
     }
 
     public String getIdLeague() {
@@ -28,5 +32,13 @@ public class League {
 
     public void setStrLeague(String strLeague) {
         this.strLeague = strLeague;
+    }
+
+    public String getStrSport() {
+        return strSport;
+    }
+
+    public void setStrSport(String strSport) {
+        this.strSport = strSport;
     }
 }
